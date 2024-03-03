@@ -1,0 +1,222 @@
+﻿<Window x:Class="Smacoteria.View.DishDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Smacoteria.View" 
+        xmlns:viewmodels="clr-namespace:Smacoteria.ViewModel"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="Додавання страви"  Width="800" Icon="/Photos/logo.ico" SizeToContent="Height">
+    <Window.DataContext>
+        <viewmodels:ViewModelDishDetail/>
+    </Window.DataContext>
+    <Window.Resources >
+        <ResourceDictionary Source="/Scroll.xaml"></ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="115"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="1.2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding DishInOrder.Dish.Name}" Margin="0 0 0 0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Height="20" Width="Auto"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding DishInOrder.Dish.Price, StringFormat='{}{0} грн'}" Margin="0 0 0 0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Height="20" Width="auto"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="2">
+                <StackPanel>
+                    <Button Content="✖" Margin="0" Width="Auto" Background="White" Foreground="White">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="White" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="50">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <ScrollViewer Width="275" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="0" Height="200" VerticalScrollBarVisibility ="Auto" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center" Padding="5" PreviewMouseLeftButtonDown="ScrollViewer_PreviewMouseLeftButtonDown" PreviewMouseMove="ScrollViewerVertical_PreviewMouseMove">
+            <ItemsControl ItemsSource="{Binding AddedAdditions}" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="1" Grid.Column="0">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Height="Auto" Width="auto"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="1">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Price, StringFormat='{}{0} грн'}" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Height="Auto" Width="auto"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="2">
+                                <StackPanel>
+                                    <Button Content="✖" Margin="0 -7 0 0" Width="Auto" Click="AdditionDeleteButton_Click" Background="White" Foreground="#FFEA6767">
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}" BorderBrush="White" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="50">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <TextBlock Grid.Row="2" Grid.Column="1" FontSize="14" FontWeight="Bold" Margin="10 15 0 75" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Run Text="Загальна сума: "/>
+            <Run Text="{Binding TotalCoast}"/>
+            <Run Text="грн"/>
+        </TextBlock>
+        <Button Margin="0 0 0 15" x:Name="AddToBasketButton" Grid.Row="2" Grid.Column="1" Background="#FF599013" Content="ДОДАТИ У КОШИК" Width="150" Height="45" Foreground="White" FontWeight="Bold" Command="{Binding AddToBasket}" Click="CloseButton_Click" VerticalAlignment="Bottom">
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Style>
+                <Style TargetType="Button">
+
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                          
+                            <Setter Property="Opacity" Value="0.5"/>
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="5"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <StackPanel Grid.Row="1" Margin="10 10 10 0">
+            <Image  Margin="0 0 10 10" Source="{Binding DishInOrder.Dish.Photo}" Width="200"/>
+            <StackPanel Grid.Row="2" Grid.Column="0">
+                <TextBlock  Margin="5 0 0 0" Text="{Binding DishInOrder.Dish.Name}" FontWeight="Bold" TextWrapping="Wrap" FontSize="18"/>
+                <TextBlock  Margin="5 0 0 0" FontSize="18">
+                <Run Text="Ціна: "/>
+                <Run Text="{Binding DishInOrder.Dish.Price}"/>
+                <Run Text="грн"/>
+                </TextBlock>
+                <TextBlock  Margin="5 0 0 0" FontSize="16">
+                <Run Text="{Binding DishInOrder.Dish.Count}" Foreground="green" />
+                <Run Text="{Binding DishInOrder.Dish.CountType}" Foreground="green"/>
+                </TextBlock>
+                <TextBlock  Margin="5 0 0 0" Text="{Binding DishInOrder.Dish.Description}" TextWrapping="Wrap" Foreground="#FF9A9898" FontSize="16"/>
+            </StackPanel>
+        </StackPanel>
+
+        <ScrollViewer Margin="0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Padding="10" PreviewMouseLeftButtonDown="ScrollViewer_PreviewMouseLeftButtonDown"
+              PreviewMouseMove="ScrollViewer_PreviewMouseMove" Height="Auto">
+            <ItemsControl ItemsSource="{Binding AllAdditions}" HorizontalAlignment="Center">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border x:Name="ProductBorder" BorderBrush="White" BorderThickness="0" Padding="10" CornerRadius="20" Width="175" Opacity="100" Visibility="Visible">
+                          
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect BlurRadius="10" Color="Gray" ShadowDepth="5"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.8"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+
+                            
+                            <Button x:Name="ContentBorder" Click="AdditionButton_Click" Background="White">
+                                <Grid>
+                                    
+                                    <StackPanel Margin="5">
+                                        <Image Margin="0 0 0 0" Source="{Binding Photo}" Width="100" Height="100" />
+                                        <TextBlock Margin="5 0 0 0" Text="{Binding Name}" FontWeight="Bold" TextWrapping="Wrap" FontSize="14"/>
+                                        <TextBlock Margin="5 0 0 0" Text="{Binding Description}" TextWrapping="Wrap" Foreground="#FF9A9898"/>
+                                        <TextBlock Margin="5 0 0 0">                                        
+                                        <Run Text="{Binding Count}" Foreground="green"/>
+                                        <Run Text="{Binding CountType}" Foreground="green"/>
+                                        </TextBlock>
+                                        <TextBlock Text="{Binding Price, StringFormat='Ціна: {0} грн'}" FontSize="14" FontWeight="Bold" Margin="5 0 0 10" Height="20"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Button.Style>
+                                    <Style TargetType="Button" >
+                                        <Style.Triggers>
+                                            
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Opacity" Value="0.5"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+
+    </Grid>
+</Window>

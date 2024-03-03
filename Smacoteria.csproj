@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <StartupObject>Smacoteria.App</StartupObject>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <ApplicationIcon>Photos\logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Photos\Additions\banan.png" />
+    <None Remove="Photos\Additions\dzhem.png" />
+    <None Remove="Photos\Additions\gryby.png" />
+    <None Remove="Photos\Additions\halapeno.png" />
+    <None Remove="Photos\Additions\Korolivskyj.png" />
+    <None Remove="Photos\Additions\kurka.png" />
+    <None Remove="Photos\Additions\kvashenyj-ogirok.png" />
+    <None Remove="Photos\Additions\losos.png" />
+    <None Remove="Photos\Additions\morozyvo.png" />
+    <None Remove="Photos\Additions\motsarela.png" />
+    <None Remove="Photos\Additions\oseledets.png" />
+    <None Remove="Photos\Additions\proshuto.png" />
+    <None Remove="Photos\Additions\salyami.png" />
+    <None Remove="Photos\Additions\shokolad.png" />
+    <None Remove="Photos\Additions\shynka.png" />
+    <None Remove="Photos\Additions\syr-tostovyj.png" />
+    <None Remove="Photos\Additions\yajtsya.png" />
+    <None Remove="Photos\Additions\zgushhene-moloko.png" />
+    <None Remove="Photos\CreateOwn\krua.png" />
+    <None Remove="Photos\CreateOwn\ovochevyj-1.png" />
+    <None Remove="Photos\CroissantSandwiches\Amsterdam.png" />
+    <None Remove="Photos\CroissantSandwiches\buljon-zhovtyj-stakan.png" />
+    <None Remove="Photos\CroissantSandwiches\chessburger.png" />
+    <None Remove="Photos\CroissantSandwiches\chiz-1.png" />
+    <None Remove="Photos\CroissantSandwiches\Galytskyj.png" />
+    <None Remove="Photos\CroissantSandwiches\Korolivskyj.png" />
+    <None Remove="Photos\CroissantSandwiches\kurka-teryyaki-na-sajt-v-osnovne-menyu-1.png" />
+    <None Remove="Photos\CroissantSandwiches\losos-filadelfiya.png" />
+    <None Remove="Photos\CroissantSandwiches\Lvivskyj.png" />
+    <None Remove="Photos\CroissantSandwiches\myslyvskyj.png" />
+    <None Remove="Photos\CroissantSandwiches\ovochevyj.png" />
+    <None Remove="Photos\CroissantSandwiches\Selyanskyj.png" />
+    <None Remove="Photos\CroissantSandwiches\SHynka-filadelfiya.png" />
+    <None Remove="Photos\CroissantSandwiches\TSezar-z-kurkoyu.png" />
+    <None Remove="Photos\CroissantSandwiches\vegetarianskyj.png" />
+    <None Remove="Photos\CroissantSandwiches\yalovychyna-gryl-croissant.png" />
+    <None Remove="Photos\CroissantSandwiches\z-tuentsem.png" />
+    <None Remove="Photos\Drinks\americano.png" />
+    <None Remove="Photos\Drinks\Apelsyn-myata.png" />
+    <None Remove="Photos\Drinks\asam-mokalbar.png" />
+    <None Remove="Photos\Drinks\bilyj-angel.png" />
+    <None Remove="Photos\Drinks\hram-neba.png" />
+    <None Remove="Photos\Drinks\imbyr-med-lajm.png" />
+    <None Remove="Photos\Drinks\kakao.png" />
+    <None Remove="Photos\Drinks\kapuchyno-l.png" />
+    <None Remove="Photos\Drinks\karnaval.png" />
+    <None Remove="Photos\Drinks\kenijskyj.png" />
+    <None Remove="Photos\Drinks\korliskyj-desert.png" />
+    <None Remove="Photos\Drinks\krem-lae-karamel.png" />
+    <None Remove="Photos\Drinks\krem-late-snikers.png" />
+    <None Remove="Photos\Drinks\late-s.png" />
+    <None Remove="Photos\Drinks\lymonad.png" />
+    <None Remove="Photos\Drinks\mohito.png" />
+    <None Remove="Photos\Drinks\molochno-yagidnyj.png" />
+    <None Remove="Photos\Drinks\molochnyj.png" />
+    <None Remove="Photos\Drinks\morokanska-myata.png" />
+    <None Remove="Photos\Drinks\Oblipyha-i-chebrets.png" />
+    <None Remove="Photos\Drinks\sad-kohanya.png" />
+    <None Remove="Photos\Drinks\ser-CHarlz-grej.png" />
+    <None Remove="Photos\Drinks\tropichna-fantaziya.png" />
+    <None Remove="Photos\Drinks\YAgody-godzhi-lymon.png" />
+    <None Remove="Photos\Drinks\zelenyj-vysokogirnyj.png" />
+    <None Remove="Photos\logo.ico" />
+    <None Remove="Photos\logo.png" />
+    <None Remove="Photos\name.png" />
+    <None Remove="Photos\SweetCroissant\Malynova-nasoloda.png" />
+    <None Remove="Photos\SweetCroissant\Mygdalevyj.png" />
+    <None Remove="Photos\SweetCroissant\Ostannya-Pyana-vyshnya-na-dodatok.png" />
+    <None Remove="Photos\SweetCroissant\porichka.png" />
+    <None Remove="Photos\SweetCroissant\Z-shokoladom-ananom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Photos\Additions\banan.png" />
+    <Resource Include="Photos\Additions\dzhem.png" />
+    <Resource Include="Photos\Additions\gryby.png" />
+    <Resource Include="Photos\Additions\halapeno.png" />
+    <Resource Include="Photos\Additions\Korolivskyj.png" />
+    <Resource Include="Photos\Additions\kurka.png" />
+    <Resource Include="Photos\Additions\kvashenyj-ogirok.png" />
+    <Resource Include="Photos\Additions\losos.png" />
+    <Resource Include="Photos\Additions\morozyvo.png" />
+    <Resource Include="Photos\Additions\motsarela.png" />
+    <Resource Include="Photos\Additions\oseledets.png" />
+    <Resource Include="Photos\Additions\proshuto.png" />
+    <Resource Include="Photos\Additions\salyami.png" />
+    <Resource Include="Photos\Additions\shokolad.png" />
+    <Resource Include="Photos\Additions\shynka.png" />
+    <Resource Include="Photos\Additions\syr-tostovyj.png" />
+    <Resource Include="Photos\Additions\yajtsya.png" />
+    <Resource Include="Photos\Additions\zgushhene-moloko.png" />
+    <Resource Include="Photos\CreateOwn\krua.png" />
+    <Resource Include="Photos\CreateOwn\ovochevyj-1.png" />
+    <Resource Include="Photos\CroissantSandwiches\Amsterdam.png" />
+    <Resource Include="Photos\CroissantSandwiches\buljon-zhovtyj-stakan.png" />
+    <Resource Include="Photos\CroissantSandwiches\chessburger.png" />
+    <Resource Include="Photos\CroissantSandwiches\chiz-1.png" />
+    <Resource Include="Photos\CroissantSandwiches\Galytskyj.png" />
+    <Resource Include="Photos\CroissantSandwiches\Korolivskyj.png" />
+    <Resource Include="Photos\CroissantSandwiches\kurka-teryyaki-na-sajt-v-osnovne-menyu-1.png" />
+    <Resource Include="Photos\CroissantSandwiches\losos-filadelfiya.png" />
+    <Resource Include="Photos\CroissantSandwiches\Lvivskyj.png" />
+    <Resource Include="Photos\CroissantSandwiches\myslyvskyj.png" />
+    <Resource Include="Photos\CroissantSandwiches\ovochevyj.png" />
+    <Resource Include="Photos\CroissantSandwiches\Selyanskyj.png" />
+    <Resource Include="Photos\CroissantSandwiches\SHynka-filadelfiya.png" />
+    <Resource Include="Photos\CroissantSandwiches\TSezar-z-kurkoyu.png" />
+    <Resource Include="Photos\CroissantSandwiches\vegetarianskyj.png" />
+    <Resource Include="Photos\CroissantSandwiches\yalovychyna-gryl-croissant.png" />
+    <Resource Include="Photos\CroissantSandwiches\z-tuentsem.png" />
+    <Resource Include="Photos\Drinks\americano.png" />
+    <Resource Include="Photos\Drinks\Apelsyn-myata.png" />
+    <Resource Include="Photos\Drinks\asam-mokalbar.png" />
+    <Resource Include="Photos\Drinks\bilyj-angel.png" />
+    <Resource Include="Photos\Drinks\hram-neba.png" />
+    <Resource Include="Photos\Drinks\imbyr-med-lajm.png" />
+    <Resource Include="Photos\Drinks\kakao.png" />
+    <Resource Include="Photos\Drinks\kapuchyno-l.png" />
+    <Resource Include="Photos\Drinks\karnaval.png" />
+    <Resource Include="Photos\Drinks\kenijskyj.png" />
+    <Resource Include="Photos\Drinks\korliskyj-desert.png" />
+    <Resource Include="Photos\Drinks\krem-lae-karamel.png" />
+    <Resource Include="Photos\Drinks\krem-late-snikers.png" />
+    <Resource Include="Photos\Drinks\late-s.png" />
+    <Resource Include="Photos\Drinks\lymonad.png" />
+    <Resource Include="Photos\Drinks\mohito.png" />
+    <Resource Include="Photos\Drinks\molochno-yagidnyj.png" />
+    <Resource Include="Photos\Drinks\molochnyj.png" />
+    <Resource Include="Photos\Drinks\morokanska-myata.png" />
+    <Resource Include="Photos\Drinks\Oblipyha-i-chebrets.png" />
+    <Resource Include="Photos\Drinks\sad-kohanya.png" />
+    <Resource Include="Photos\Drinks\ser-CHarlz-grej.png" />
+    <Resource Include="Photos\Drinks\tropichna-fantaziya.png" />
+    <Resource Include="Photos\Drinks\YAgody-godzhi-lymon.png" />
+    <Resource Include="Photos\Drinks\zelenyj-vysokogirnyj.png" />
+    <Resource Include="Photos\logo.ico" />
+    <Resource Include="Photos\logo.png" />
+    <Resource Include="Photos\name.png" />
+    <Resource Include="Photos\SweetCroissant\Malynova-nasoloda.png" />
+    <Resource Include="Photos\SweetCroissant\Mygdalevyj.png" />
+    <Resource Include="Photos\SweetCroissant\Ostannya-Pyana-vyshnya-na-dodatok.png" />
+    <Resource Include="Photos\SweetCroissant\porichka.png" />
+    <Resource Include="Photos\SweetCroissant\Z-shokoladom-ananom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AssemblyInfo.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+</Project>
